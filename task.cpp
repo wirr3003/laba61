@@ -53,7 +53,6 @@ void Figure::movement(double x, double y)
    points_fig[i].y += y;
    }
    draw();
-
 }
 
 void Figure::scale(double factor)
@@ -64,6 +63,8 @@ void Figure::scale(double factor)
 
 void Figure::draw()
 {
+    setfillstyle(SOLID_FILL, BLACK);
+   bar(0, 0, 11*SIZEBUTTON, WIDTH );
    Point points[count_vertex];
    int point_draw[2*count_vertex];
    for (int i = 0; i < count_vertex; i++)
@@ -86,13 +87,9 @@ void Figure::draw()
       point_draw[i+1] = points[i/2].y;
    }
    cout << endl;
-   
-   setfillstyle(SOLID_FILL, BLACK);
-   fillpoly(count_vertex, point_draw);
-
    setcolor(RED);
-   setfillstyle(SOLID_FILL, RED);
-
+   setfillstyle(SOLID_FILL, MAGENTA);
+   fillpoly(count_vertex, point_draw);
 }
 
 void save()
