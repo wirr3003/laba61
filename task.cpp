@@ -1,14 +1,15 @@
 #include <cmath>
 #include "graphics.h"
 #include <cstdlib>
-#include "task.h"
+#include "task.hpp"
 #include "control.h"
 #include "ctime"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-const double PI = arccos(0.0)*2.0;
+const double PI = acos(0.0)*2.0;
 
 Figure::Figure()
 {
@@ -18,7 +19,7 @@ Figure::Figure()
    
   points_fig = new Point[count_vertex];
    
-   for (int i = 0; i < count_vertexs; i++)
+   for (int i = 0; i < count_vertex; i++)
    {
       file >> points_fig[i].x >> points_fig[i].y;
       
@@ -62,7 +63,7 @@ void Figure::draw()
 {
    Point points[count_vertex];
    int point_draw[2*count_vertex];
-   for (int i = 0; i < count_vertiex; i++)
+   for (int i = 0; i < count_vertex; i++)
    {
       points[i] = points_fig[i];
       

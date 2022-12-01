@@ -6,7 +6,7 @@ int main() {
    initwindow(HEIGHT, WIDTH);
    
    create_control(TURNLEFT, 11*SIZEBUTTON+1, 0.5*SIZEBUTTON, "TURNLEFT.bmp");
-   create_control(TURNRIGHT, 11*SIZEBUTTON, 2.5*SIZEBUTTON, "TURNRIGHT.bmp");
+   create_control(TURNRIGHT, 11*SIZEBUTTON, 2.5*SIZEBUTTON, "TURNOUT.bmp");
    create_control(MOVEMENT, 11*SIZEBUTTON, 4.5*SIZEBUTTON, "MOVEMENT.bmp");
    create_control(SCALE, 11*SIZEBUTTON, 4.5*SIZEBUTTON, "SCALE.bmp");
    create_control(SAVE, 11*SIZEBUTTON, WIDTH-3*SIZEBUTTON, "SAVE.bmp");
@@ -45,7 +45,7 @@ int main() {
       switch(type)
       {
       case MOVEMENT_1:
-        switch (getch(key())) {
+        switch (getch(kbhit()))  {
             case NONE_1:
                break;
             case KEY_UP:
@@ -63,7 +63,7 @@ int main() {
             }
             break;
          case SCALE_1:
-            switch (getch(key())) {
+            switch (getch(kbhit())) {
             case KEY_LEFT:
                figure.scale(1.025);
                break;

@@ -11,8 +11,8 @@ class Figure
 {
    int count_vertex;
    Point *points_fig;
+   Point center_1;
    Point center_fig;
-   Point center;
    double angle_fig = 0;
    double factor_fig = 1;
 
