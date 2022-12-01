@@ -22,8 +22,7 @@ Figure::Figure()
    for (int i = 0; i < count_vertex; i++)
    {
       file >> points_fig[i].x >> points_fig[i].y;
-      
-      printf("(%.2lf;%.2lf)-", points_fig[i].x, points_fig[i].y);
+      printf("(%.2lf;%.2lf)-\n", points_fig[i].x, points_fig[i].y);
    }
    center();
    draw();
@@ -48,9 +47,13 @@ void Figure::spin(double angle)
 
 void Figure::movement(double x, double y)
 {
-   center_fig.x += x;
-   center_fig.y += y;
+   for (int i = 0; i < count_vertex; i++)
+   {
+   points_fig[i].x += x;
+   points_fig[i].y += y;
+   }
    draw();
+
 }
 
 void Figure::scale(double factor)
@@ -67,8 +70,6 @@ void Figure::draw()
    {
       points[i] = points_fig[i];
       
-      points[i].x += center_fig.x;
-      points[i].y += center_fig.y;
       center();
       
       points[i].x = center_1.x+(-center_1.x+points_fig[i].x)*cos(angle_fig)+(center_1.y-points_fig[i].y)*sin(angle_fig);
@@ -76,9 +77,6 @@ void Figure::draw()
 
       points[i].x *= factor_fig;
       points[i].y *= factor_fig;
-
-      points[i].x = points[i].x + WIDTH/2.0;
-      points[i].y = HEIGHT/2.0 - points[i].y;
    }
    
    for (int i = 0; i < 2*count_vertex; i+=2)

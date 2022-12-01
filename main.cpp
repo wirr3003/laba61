@@ -18,16 +18,16 @@ int main() {
 
    while (true) 
    {
-      while (mousebuttons() != 1)
+      //while (mousebuttons() != 1)
       switch (select_control()) 
       {
       case NONE:
          break;
       case TURNLEFT:
-         //заполнить
+         figure.spin(0.975);
          break;
       case TURNRIGHT:
-         //заполнить
+         figure.spin(1.025);
       break;
       case MOVEMENT:
          type = MOVEMENT_1; 
@@ -44,7 +44,7 @@ int main() {
       }
       switch(type)
       {
-      case MOVEMENT_1:
+      case NONE_1:
         switch (getch(kbhit()))  {
             case NONE_1:
                break;
@@ -71,8 +71,6 @@ int main() {
                figure.scale(0.975);
                break;
             }
-         case NONE_1:
-            break;
       }
    }
 }

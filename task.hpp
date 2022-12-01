@@ -26,6 +26,6 @@ public:
    void draw();
 };
 
-void save();//возможно нужно убрать
+void save();
 
 #endif
